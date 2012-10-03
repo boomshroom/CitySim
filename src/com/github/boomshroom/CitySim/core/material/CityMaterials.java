@@ -7,17 +7,17 @@ import org.spout.api.Spout;
 import org.spout.api.material.BlockMaterial;
 
 import com.github.boomshroom.CitySim.core.material.block.Ground;
-import com.github.boomshroom.CitySim.core.material.block.building.House;
-import com.github.boomshroom.CitySim.core.material.block.road.Road;
+import com.github.boomshroom.CitySim.core.material.block.building.CityHouse;
+import com.github.boomshroom.CitySim.core.material.block.road.SimpleCityRoad;
 
 public class CityMaterials {
 	// == Eviroment Blocks ==
 	public static final BlockMaterial AIR =BlockMaterial.AIR;
 	public static final Ground GROUND = new Ground("Ground", 1);
 	// == Buildings ==
-	public static final House HOUSE = new House("House",2);
+	public static final CityHouse HOUSE = new CityHouse("House",2);
 	// == Roads ==
-	public static final Road ROAD = new Road("Road", 3);
+	public static final SimpleCityRoad ROAD = new SimpleCityRoad("Road", 3);
 	
 	private static boolean initialized =false;
 	
