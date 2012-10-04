@@ -6,19 +6,21 @@ import java.lang.reflect.Modifier;
 import org.spout.api.Spout;
 import org.spout.api.material.BlockMaterial;
 
+import com.github.boomshroom.CitySim.base.material.BaseMaterial;
 import com.github.boomshroom.CitySim.core.material.block.Ground;
-import com.github.boomshroom.CitySim.core.material.block.building.CityHouse;
-import com.github.boomshroom.CitySim.core.material.block.road.SimpleCityRoad;
+import com.github.boomshroom.CitySim.core.material.block.building.house.CityHouse;
+import com.github.boomshroom.CitySim.core.material.block.road.CityRoad;
 
 public class CityMaterials {
 	// == Eviroment Blocks ==
 	public static final BlockMaterial AIR =BlockMaterial.AIR;
-	public static final Ground GROUND = new Ground("Ground", 1);
+	public static final Ground GROUND = new Ground("Ground");
 	// == Buildings ==
-	public static final CityHouse HOUSE = new CityHouse("House",2);
+	public static final CityHouse HOUSE = new CityHouse("House");
 	// == Roads ==
-	public static final SimpleCityRoad ROAD = new SimpleCityRoad("Road", 3);
-	
+	public static final CityRoad ROAD = new CityRoad("Road");
+	// == Resources ==
+	public static final CityResource ELECTRICTY = new CityResource("electricty");
 	private static boolean initialized =false;
 	
 	public static void initialize(){
@@ -27,10 +29,10 @@ public class CityMaterials {
 		}
 		for(Field field : CityMaterials.class.getFields()){
 			try{
-				if(field==null||((field.getModifiers()&(Modifier.STATIC|Modifier.PUBLIC))!=(Modifier.STATIC|Modifier.PUBLIC))||!CityMaterial.class.isAssignableFrom(field.getType())){
+				if(field==null||((field.getModifiers()&(Modifier.STATIC|Modifier.PUBLIC))!=(Modifier.STATIC|Modifier.PUBLIC))||!BaseMaterial.class.isAssignableFrom(field.getType())){
 					continue;
 				}
-				CityMaterial material = (CityMaterial) field.get(null);
+				BaseMaterial material = (BaseMaterial) field.get(null);
 				if(material==null){
 					Spout.getLogger().severe("City Material field '"+field.getName()+"' is not yet initialized");
 					continue;

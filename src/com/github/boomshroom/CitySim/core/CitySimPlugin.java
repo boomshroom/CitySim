@@ -1,7 +1,5 @@
 package com.github.boomshroom.CitySim.core;
 
-import java.util.logging.Level;
-
 import org.spout.api.Engine;
 import org.spout.api.UnsafeMethod;
 import org.spout.api.plugin.CommonPlugin;
@@ -10,6 +8,7 @@ import com.github.boomshroom.CitySim.core.world.generator.CityGenerator;
 
 public class CitySimPlugin extends CommonPlugin {
 	
+	@SuppressWarnings("unused")
 	private static CitySimPlugin instance;
 	private static Engine engine;
 	private static final CityGenerator generator = new CityGenerator();
