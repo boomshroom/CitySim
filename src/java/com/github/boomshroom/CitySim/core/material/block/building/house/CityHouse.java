@@ -1,13 +1,11 @@
 package com.github.boomshroom.CitySim.core.material.block.building.house;
 
-import java.util.HashMap;
+import org.spout.api.component.components.BlockComponent;
 
-import com.github.boomshroom.CitySim.api.material.Resource;
-import com.github.boomshroom.CitySim.api.material.block.building.House;
 import com.github.boomshroom.CitySim.base.material.block.building.BaseHouse;
-import com.github.boomshroom.CitySim.core.material.CityMaterials;
+import com.github.boomshroom.CitySim.core.component.block.HouseComponent;
 
-public class CityHouse extends BaseHouse implements House {
+public class CityHouse extends BaseHouse{
 
 	public CityHouse(String name) {
 		super(name);
@@ -19,15 +17,8 @@ public class CityHouse extends BaseHouse implements House {
 	}
 
 	@Override
-	public int getFamilyCapacity() {
-		return 1;
-	}
-
-	@Override
-	public HashMap<Resource, Integer> getConsumtion() {
-		HashMap<Resource, Integer> val = new HashMap<Resource, Integer>();
-		val.put(CityMaterials.ELECTRICITY, 1);
-		return val;
+	public BlockComponent createBlockComponent() {
+		return new HouseComponent(this);
 	}
 
 }

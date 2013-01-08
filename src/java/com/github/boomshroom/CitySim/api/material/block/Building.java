@@ -1,16 +1,13 @@
 package com.github.boomshroom.CitySim.api.material.block;
 
-import java.util.HashMap;
+import org.spout.api.material.ComplexMaterial;
 
-import com.github.boomshroom.CitySim.api.material.Resource;
-
-public interface Building {
+public interface Building extends ComplexMaterial{
 	
 	/**
 	 * returns a 2d array of ints representing the dimmensions of the building
 	 * @return size of building
 	 */
 	public int[] getDimentions();
-	
-	public HashMap<Resource,Integer> getConsumtion();
+
 }
